@@ -1,0 +1,29 @@
+This program converts UltiSnips (Vim) to Yasnippets (Emacs). 
+
+* Usage 
+
+An UltiSnips file can look like this (e.g. a part of my =tex.snippets=):
+#+BEGIN_SRC 
+snippet pdv "pdv" i
+\pdv{$1}{$2}
+endsnippet
+                 
+snippet dd "dd"
+\dd{$1}
+endsnippet
+#+END_SRC
+
+A yasnippet file =pdv= can look like this:
+#+BEGIN_SRC 
+# -*- mode: snippet -*-
+# name: pdv
+# key: pdv
+# --
+\pdv{$1}{$2}
+#+END_SRC
+
+You can convert your UltiSnips to Yasnippets like this:  
+#+BEGIN_SRC sh
+python3 convert_ultisnips_to_yasnippets.py tex.snippets
+#+END_SRC
+A new subdirectory is created called =converted= (by default), where you can find your yasnippet files. 
